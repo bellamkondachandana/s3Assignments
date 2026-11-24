@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LearnHub - Learning Platform</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9ff;
+            color: #222;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background-color: white;
+        }
+
+        .logo {
+            color: #6c63ff;
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .login-btn {
+            background-color: #6c63ff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 40px;
+            padding: 60px 8%;
+        }
+
+        .hero-text h1 {
+            font-size: 55px;
+            margin-bottom: 20px;
+        }
+
+        .hero-text h1 span {
+            color: #6c63ff;
+        }
+
+        .hero-text p {
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .start-btn {
+            display: inline-block;
+            background-color: #6c63ff;
+            color: white;
+            padding: 14px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 20px;
+        }
+
+        /* Features */
+        .features {
+            padding: 50px 8%;
+            text-align: center;
+        }
+
+        .features h2 {
+            font-size: 32px;
+            margin-bottom: 30px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            color: #6c63ff;
+        }
+
+        .card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 25px;
+            background-color: #222;
+            color: white;
+            margin-top: 40px;
+        }
+
+        /* Tablet Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 40px;
+            }
+
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .nav-links {
+                gap: 12px;
+            }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 480px) {
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+                padding: 20px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                padding: 35px 20px;
+            }
+
+            .hero-text h1 {
+                font-size: 32px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .features {
+                padding: 35px 20px;
+            }
+
+            .login-btn {
+                padding: 8px 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">LearnHub</div>
+
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Courses</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+
+        <a href="#" class="login-btn">Login</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Learn Skills.<br><span>Build Future.</span></h1>
+
+            <p>
+                Explore new skills, learn from experts and build your career.
+                Start your learning journey today with LearnHub.
+            </p>
+
+            <a href="#" class="start-btn">Get Started</a>
+        </div>
+
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f"
+                 alt="Students learning together">
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <h2>Why Choose LearnHub?</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>📚 Quality Courses</h3>
+                <p>Learn new skills with simple and structured courses.</p>
+            </div>
+
+            <div class="card">
+                <h3>👩‍🏫 Expert Teachers</h3>
+                <p>Get guidance from experienced instructors.</p>
+            </div>
+
+            <div class="card">
+                <h3>🚀 Career Growth</h3>
+                <p>Improve your skills and prepare for your future career.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 LearnHub. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
