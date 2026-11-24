@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            width: 100%;
+            max-width: 400px;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 7px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 11px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 15px;
+        }
+
+        input:focus {
+            outline: 2px solid #2563eb;
+            border-color: #2563eb;
+        }
+
+        .error {
+            color: red;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        #successMessage {
+            color: green;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h2>Registration Form</h2>
+
+        <form id="registrationForm" novalidate>
+
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" placeholder="Enter your name">
+                <div class="error" id="nameError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="Enter your email">
+                <div class="error" id="emailError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter password">
+                <div class="error" id="passwordError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword"
+                       placeholder="Confirm password">
+                <div class="error" id="confirmPasswordError"></div>
+            </div>
+
+            <button type="submit">Register</button>
+
+            <p id="successMessage" aria-live="polite"></p>
+
+        </form>
+    </div>
+
+    <script>
+        const form = document.getElementById("registrationForm");
+
+        form.addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            const name = document.getElementById("name");
+            const email = document.getElementById("email");
+            const password = document.getElementById("password");
+            const confirmPassword = document.getElementById("confirmPassword");
+
+            let isValid = true;
+
+            // Clear previous errors
+            document.querySelectorAll(".error").forEach(function(error) {
+                error.textContent = "";
+            });
+
+            document.getElementById("successMessage").textContent = "";
+
+            // Name validation
+            if (name.value.trim() === "") {
+                document.getElementById("nameError").textContent =
+                    "Please enter your name.";
+                isValid = false;
+            }
+
+            // Email validation
+            if (email.value.trim() === "") {
+                document.getElementById("emailError").textContent =
+                    "Please enter your email.";
+                isValid = false;
+            } else if (!email.validity.valid) {
+                document.getElementById("emailError").textContent =
+                    "Please enter a valid email address.";
+                isValid = false;
+            }
+
+            // Password validation
+            if (password.value.length < 8) {
+                document.getElementById("passwordError").textContent =
+                    "Password must contain at least 8 characters.";
+                isValid = false;
+            }
+
+            // Confirm password validation
+            if (confirmPassword.value === "") {
+                document.getElementById("confirmPasswordError").textContent =
+                    "Please confirm your password.";
+                isValid = false;
+            } else if (password.value !== confirmPassword.value) {
+                document.getElementById("confirmPasswordError").textContent =
+                    "Passwords do not match.";
+                isValid = false;
+            }
+
+            // Successful registration
+            if (isValid) {
+                document.getElementById("successMessage").textContent =
+                    "Registration successful!";
+
+                form.reset();
+            }
+        });
+    </script>
+
+</body>
+</html>
